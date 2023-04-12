@@ -1,7 +1,8 @@
 fn main() -> anyhow::Result<()> {
     println!("cargo:rerun-if-changed=src/ffi.rs");
-    println!("cargo:rerun-if-changed=cpp/lib.h");
-    println!("cargo:rerun-if-changed=cpp/lib.cpp");
+    println!("cargo:rerun-if-changed=cpp/lib.hpp");
+    println!("cargo:rerun-if-changed=cpp/bridge.hpp");
+    println!("cargo:rerun-if-changed=cpp/bridge.cpp");
 
     cxx_build::bridge("src/ffi.rs")
         .file("cpp/bridge.cpp")
